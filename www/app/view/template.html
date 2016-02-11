@@ -1,0 +1,22 @@
+
+<table class="table table-hover">
+    <thead>
+    <tr>
+        <td>Name</td>
+        <td>Sex</td>
+        <td>DOB</td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="someItem in view.someList">
+        <td>{{someItem.name}}</td>
+        <td>{{someItem.sex}}</td>
+        <td>{{view.toLocaleDateString(someItem.dob)}}</td>
+        <td>
+            <button ng-click="view.edit(someItem._id)" class="btn btn-default pull-right"><span class="fa fa-pencil"> Edit</span></button>
+            <button ng-click="view.delete(someItem._id)" class="btn btn-default pull-right"><span class="fa fa-trash-o"> Delete</span></button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<button ng-click="view.add()" class="btn btn-primary pull-right"><span class="fa fa-plus"></span> Add</button>
