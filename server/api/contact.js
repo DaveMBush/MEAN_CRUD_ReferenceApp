@@ -2,8 +2,8 @@
  * Created by dave on 2/10/2016.
  */
 var Contact = require('../models/contact');
-
-var router = require('./router');
+var express = require('express');
+var router = express.Router();
 router.route('/contact/:id')
     .get(function(req,res){
         Contact.findById(req.params.id,function(err,contact){
@@ -31,7 +31,7 @@ router.route('/contact/:id')
         })
     })
     .delete(function(req,res){
-        Contact.remove({_id: req.params.id},function(err,contact){
+        Contact.remove({_id: req.params.id},function(err /*,contact*/){
             if(err){
                 res.send(err);
             }
@@ -63,3 +63,5 @@ router.route('/contact')
             res.json(contacts);
         })
     });
+
+module.exports = router;

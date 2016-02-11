@@ -22,9 +22,10 @@ app.use(express.static(__dirname + '/www'));
 var router = require('./server/api/router');
 
 // more routes for our API will happen here
-require('./server/api/contact');
+var contactRoutes = require('./server/api/contact');
 
 // all of our routes will be prefixed with /api
+app.use('/api',contactRoutes);
 app.use('/api', router);
 
 // This comes last.  right before we start listening
